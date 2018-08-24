@@ -6,15 +6,9 @@
 #include <stdio.h>
 #include <string.h>
 
-struct Wolf {
-    char  name[50];
-    int   age;
-    int   energy;
-};
-
 int main(void) {
-
-    struct Wolf wolf;
+	
+    Wolf wolf;
 
     strcpy(wolf.name, "Mario");
     wolf.age = 23;

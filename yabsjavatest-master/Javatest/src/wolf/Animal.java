@@ -1,3 +1,4 @@
+package wolf;
 public interface Animal {
     public String eat(String foodType);
     public void poop();
@@ -5,4 +6,6 @@ public interface Animal {
     public int getAge();
     public int getTTL();
     public void sleep();
+	public int getEnergy();
+
 }

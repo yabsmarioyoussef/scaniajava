@@ -1,39 +1,39 @@
+
 ///
 // Created by Mario Youssef on 2018-08-21.
 //
+#include "Animal.h"
 #include <stdio.h>
-#include "animal.h"
 #include <time.h>
 #include <stdlib.h>
 #include <memory.h>
 
-struct Wolf {
-    char  name[50];
-    int   age;
-    int   energy;
-	int (*eat)(char);
-	int (*poop)();
-	int (*hunt)();
-	int (*getTTL)(int, int);
-	int (*sleep)();
-	
+struct animal {
+    char name[50];
+    int age;
+    int energy;
+	int (*eatfunc)(char*);
+	int (*poopfunc)();
+	int (*huntfunc)();
+	int (*getTTLfunc)(int, int);
+	int (*sleepfunc)();
 };
 
 int eat(char *foodType){
     if(strcmp(foodType, "fish") == 0) {
-		println("we will gain %d energy \n", 25);
+		printf("we will gain %d energy \n", 25);
         return 25;
     }
     else if(strcmp(foodType, "sheep") == 0) {
-		println("we will gain %d energy \n", 35);
+		printf("we will gain %d energy \n", 35);
         return 35;
     }
     else if(strcmp(foodType, "human") == 0) {
-		println("we will gain %d energy \n", 55);
+		printf("we will gain %d energy \n", 55);
         return 50;
     }
     else {
-		println("we will gain %d energy \n", 10);
+		printf("we will gain %d energy \n", 10);
         return 10;
     }
 }
@@ -45,7 +45,6 @@ int poop() {
 int hunt() {
     int effort = -25;
 
-    srand(time(NULL));   // should only be called once
     int r = rand();
     if(r % 2 == 0) {
         effort +=15;
@@ -62,8 +61,16 @@ int getTTL(int age, int energy) {
     return ttl;
 }
 
-int sleep(){
+int sleep() {
     return 15;
+}
+
+init(animal* wolf) {
+	wolf->eatfunc = &eat;
+	wolf->poopfunc = &poop;
+	wolf->huntfunc = &hunt;
+	wolf->getTTLfunc = &getTTL;
+	wolf->sleepfunc = &sleep;
 }
 
 

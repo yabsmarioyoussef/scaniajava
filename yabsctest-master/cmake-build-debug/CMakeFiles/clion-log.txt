@@ -1,4 +1,1 @@
-/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/marioyoussef/CLionProjects/AnotherTest
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/marioyoussef/CLionProjects/AnotherTest/cmake-build-debug
+Toolchains are not configured Configure

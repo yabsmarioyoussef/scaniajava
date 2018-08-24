@@ -1,3 +1,4 @@
+package wolf;
 import java.util.Random;
 
 public class Wolf implements Animal {
@@ -11,6 +12,7 @@ public class Wolf implements Animal {
         energy = 20;
     }
 
+	@Override
     public String eat(String foodType) {
         if (foodType.equals("fish"))
             energy += 25;
@@ -21,13 +23,16 @@ public class Wolf implements Animal {
         else
             energy += 10;
 
+		System.out.println("Enery är " + energy);
         return "new energy is " + energy;
     }
 
+	@Override
     public void poop() {
         energy -= 10;
     }
 
+	@Override
     public String hunt() {
         energy -= 25;
         Random rand = new Random();
@@ -43,6 +48,7 @@ public class Wolf implements Animal {
         return name;
     }
 
+	@Override
     public int getAge() {
         return age;
     }
@@ -51,10 +57,12 @@ public class Wolf implements Animal {
         return ((2 * energy) / age);
     }
 
+	@Override
     public int getEnergy() {
         return energy;
     }
 
+	@Override
     public int getTTL() {
         return calculateTTL();
     }
