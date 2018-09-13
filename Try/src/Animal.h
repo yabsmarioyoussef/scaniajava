@@ -5,24 +5,27 @@
 #ifndef YABSJAVATEST_ANIMAL_H
 #define YABSJAVATEST_ANIMAL_H
 
-struct animal;
-
-typedef struct Animal{
+typedef struct Animal {
 	char name[50];
 	int age;
 	int energy;
-	int (*eatfunc)(char*);
-	int (*poopfunc)();
-	int (*huntfunc)();
-	int (*getTTLfunc)(int, int);
-	int (*sleepfunc)();
-} animal;
 
-void init(animal* ani);
-int eat(char *foodType);
-int poop();
-int hunt();
-int getTTL(int age, int energy);
-int sleep();
+	void (*eatfunc)(/*struct Animal */);
+	void (*poopfunc)(/*struct Animal */);
+	int (*getTTLfunc)(int, int);
+	void (*sleepfunc)(/*struct Animal */);
+	int (*energyfunc)(/*struct Animal */);
+	char * (*namefunc)(/*struct Animal */);
+	int (*agefunc)(/*struct Animal */);
+} AnimalT;
+
+static void eat(AnimalT *animal);
+static void poop(AnimalT *animal);
+static int getTTL(int age, int energy);
+static void sleep(AnimalT *animal);
+static int getEnergy(AnimalT *animal);
+static int getAge(AnimalT *animal);
+static char * getName(AnimalT *animal);
+
 
 #endif //YABSJAVATEST_ANIMAL_H
